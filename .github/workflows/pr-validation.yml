@@ -1,16 +1,13 @@
-name: Main
+name: Validate PR
 
 on:
-  push:
-    branches: [ "main" ]
-    merge_group:
-      types: [ checks_requested ]
+  pull_request:
 
 jobs:
-  validate-branch:
+  validate-pr:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Run fast CI (emulated by a short sleep)
-        run: sleep 60
+        run: sleep 5
